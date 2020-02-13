@@ -6,11 +6,10 @@ RUN go mod download
 # Copy the source from the current directory to the Working Directory inside the container
 COPY . .
 # Build the Go app
+EXPOSE 5000
+USER 1000
 
-RUN go build -o backend ./api/cmd/api/
+RUN go run cmd/api/main.go
 # Expose port 5000 to the outside world
 
 
-EXPOSE 5000
-USER 1000
-CMD ["./backend"]
