@@ -51,7 +51,7 @@ const Login:React.FC=()=>{
           <GithubIcon size="lg"/>
         </CardHeader>
         <CardBody style={{textAlign: 'center'}}>
-          <GitHubLogin clientId="aac6161a58b4d7798f05"
+          <GitHubLogin clientId="d1eaf29f25b518f798ea"
             redirectUri=""
             onSuccess={onSuccess}
             onFailure={onFailure}

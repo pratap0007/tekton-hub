@@ -7,7 +7,7 @@ RUN go mod download
 COPY . .
 # Build the Go app
 
-RUN go build -o backend ./cmd/
+RUN go build -o backend ./api/cmd/api/
 # Expose port 5000 to the outside world
 
 

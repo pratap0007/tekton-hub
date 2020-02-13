@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: validation
+spec:
+  selector:
+    matchLabels:
+      app: validation
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: validation
+    spec:
+      containers:
+        - name: validation
+          image: github.com/redhat-developer/tekton-hub/backend/validation
+          ports:
+            - containerPort: 5000
+
+
