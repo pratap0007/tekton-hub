@@ -90,9 +90,8 @@ const BasicDetail: React.FC<BasicDetailProp> = (props: any) => {
     fetchTaskDescription(props.version.rawUrl);
     dropdownItems = props.task.data.reverse().map((item: any, index: any) => {
       return <DropdownItem
-        key={`res-${item.version}`} id={item.version}
-        onClick={version} >
-        {item.version}
+        key={`res-${ item.version }`} id={item.version}
+        onClick={version}>{item.version}
       </DropdownItem>;
     });
   }
