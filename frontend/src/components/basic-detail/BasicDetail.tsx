@@ -77,39 +77,47 @@ const BasicDetail: React.FC<BasicDetailProp> = (props: any) => {
     useState(props.task.latestVersion + ' (latest) ');
 
   const [taskLink, setTaskLink] =
-    useState(`kubectl apply -f ${ props.version.rawUrl }`);
+    useState(`kubectl apply -f ${props.version.rawUrl}`);
 
-  const [href, setHref] = useState(`${ props.version.webUrl.substring(0,
-    props.version.webUrl.lastIndexOf('/') + 1) }`);
+  const [href, setHref] = useState(`${props.version.webUrl.substring(0,
+    props.version.webUrl.lastIndexOf('/') + 1)}`);
 
   // Dropdown menu to show versions
   const [isOpen, set] = useState(false);
-  let dropdownItems: any = [];
+  const dropdownItems: any = [];
 
   if (props.task.data) {
     fetchTaskDescription(props.version.rawUrl);
-    dropdownItems = props.task.data.reverse().map((item: any, index: any) => {
-      return <DropdownItem
-        key={`res-${item.version}`} id={item.version}
-        onClick={version} >
-        {item.version}
-      </DropdownItem>;
+    const tempTaskData = props.task.data.reverse();
+    tempTaskData.forEach((item: any, index: any) => {
+      if (props.task.latestVersion === item.version) {
+        dropdownItems.push(<DropdownItem
+          key={`res-${item.version}`} name={item.version}
+          onClick={version} >
+          {item.version + ' (latest) '}
+        </DropdownItem>);
+      } else {
+        dropdownItems.push(<DropdownItem
+          key={`res-${item.version}`} name={item.version}
+          onClick={version} >
+          {item.version}
+        </DropdownItem>);
+      }
     });
   }
 
   // Version for resource
   function version(event: any) {
     props.task.data.forEach((item: any) => {
-      if (event.target.text === props.task.latestVersion) {
-        setVersion(props.task.latestVersion + ' (latest) ');
-      } else {
-        setVersion(event.target.text);
-      }
-      if (event.target.text === item.version) {
+      // if (event.target.id === props.task.latestVersion) {
+      //   setVersion(props.task.latestVersion + ' (latest) ');
+      // } else {
+      setVersion(event.target.text);
+      if (event.target.name === item.version) {
         props.fetchTaskDescription(item.rawUrl);
 
-        setHref(`${ item.webUrl.substring(0,
-          item.webUrl.lastIndexOf('/') + 1) }`);
+        setHref(`${item.webUrl.substring(0,
+          item.webUrl.lastIndexOf('/') + 1)}`);
 
         setTaskLink(`kubectl apply -f ${item.rawUrl}`);
 

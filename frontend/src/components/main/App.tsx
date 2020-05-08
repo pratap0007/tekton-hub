@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 import SearchBar from '../search-bar/SearchBar';
 import TaskContainer from '../task-container/TaskContainer';
-import UploadTask from '../upload-task/UploadTask';
+// import UploadTask from '../upload-task/UploadTask';
 import '@patternfly/react-core/dist/styles/base.css';
 import logo from '../assets/logo/main.png';
 import Filter from '../filter/Filter';
@@ -31,7 +31,7 @@ import {
 import Detail from '../detail/Detail';
 import BasicDetailParent from '../basic-detail/BasicDetailParent';
 import BackgroundImageHeader from '../background-image/BackgroundImage';
-// import Login from '../Authentication/Login';
+import Login from '../Authentication/Login';
 import Footer from '../footer/Footer';
 import {PlusIcon} from '@patternfly/react-icons';
 interface mainProps {
@@ -134,7 +134,7 @@ const App: React.FC<mainProps> = () => {
               <Route exact path="/detail/:taskId"
                 component={BasicDetailParent} />
               <Route exact path="/detail/:taskId" component={Detail} />
-              <Route exact path="/upload" component={UploadTask} />
+              {/* <Route exact path="/upload" component={UploadTask} /> */}
             </GridItem>
             <GridItem span={2} rowSpan={12}>
 
@@ -181,6 +181,11 @@ const App: React.FC<mainProps> = () => {
           <Route path='/login' component={Login} />
           <Route path='/logout' component={Login} />
         </PageSection> */}
+
+        <PageSection>
+          <Route path='/login' component={Login} />
+          <Route path='/logout' component={Login} />
+        </PageSection>
 
         <Footer />
 
