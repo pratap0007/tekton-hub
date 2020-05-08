@@ -72,7 +72,7 @@ const SearchBar: React.FC = (props: any) => {
             <div style={{width: '100%', boxShadow: 'rgba'}}>
               <TextInput aria-label="text input example" value={textValue} type="search"
                 onChange={onTextChanged} placeholder="Search for task or pipeline"
-                style={{padding: '10px 5px', height: '2.6em'}} />
+                style={{padding: '10px 5px', height: '2.7em'}} />
 
             </div>
           </InputGroup>
