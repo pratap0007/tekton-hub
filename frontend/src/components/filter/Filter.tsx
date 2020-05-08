@@ -343,9 +343,9 @@ const Filter: React.FC = (props: any) => {
 
   return (
     <div className="filter-size">
-      <Flex style={{marginBottom: '1em'}}>
+      <Flex style={{marginBottom: '4em'}}>
         <FlexItem >
-          <b>
+          <b style={{fontSize: '1.3em', verticalAlign: '-0.2em'}}>
             Sort
           </b>
         </FlexItem>
@@ -356,7 +356,7 @@ const Filter: React.FC = (props: any) => {
       </Flex>
       <Flex>
         <FlexItem>
-          <b>Refine By :</b>
+          <b style={{fontSize: '1.3em', color: '#484848'}}>Refine By :</b>
         </FlexItem>
         <FlexItem >
           <Button variant='plain'
@@ -368,20 +368,20 @@ const Filter: React.FC = (props: any) => {
 
         </FlexItem>
       </Flex >
-      <Flex style={{marginBottom: '1em'}}>
-        <FlexItem>
-          <b>Types</b>
+      <Flex>
+        <FlexItem style={{marginBottom: '0.3em'}}>
+          <b>Kind</b>
         </FlexItem>
       </Flex>
       {resourceType}
-      <Flex style={{marginBottom: '1em', marginTop: '1em'}}>
-        <FlexItem>
+      <Flex style={{marginTop: '1.5em'}}>
+        <FlexItem style={{marginBottom: '0.3em'}}>
           <b>Support Tier </b>
         </FlexItem>
       </Flex>
       {showverifiedtask}
-      <Flex style={{marginBottom: '1em', marginTop: '1em'}}>
-        <FlexItem>
+      <Flex style={{marginTop: '1.5em'}}>
+        <FlexItem style={{marginBottom: '0.3em'}}>
           <b>
             Categories
           </b>
