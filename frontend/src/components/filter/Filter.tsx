@@ -182,7 +182,7 @@ const Filter: React.FC = (props: any) => {
     if (resourcetypeList.length > 0) {
       resourcetypeList.forEach((resourceType: any) => {
         filterArray.forEach((resourceItem: any) => {
-          if (resourceItem.type === resourceType) {
+          if (resourceItem.type.toLowerCase() === resourceType) {
             tempv.push(resourceItem);
           }
         },
@@ -195,7 +195,8 @@ const Filter: React.FC = (props: any) => {
     if (resourceVerificationList.length > 0) {
       resourceVerificationList.forEach((resourceVerification: any) => {
         filterArray.forEach((resourceItem: any) => {
-          if (resourceItem.catalog.type === resourceVerification) {
+          if (resourceItem.catalog.type ===
+            resourceVerification.toLowerCase()) {
             tempx.push(resourceItem);
           }
         });

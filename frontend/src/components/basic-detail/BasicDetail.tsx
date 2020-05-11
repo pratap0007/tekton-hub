@@ -66,7 +66,7 @@ const BasicDetail: React.FC<BasicDetailProp> = (props: any) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [summary, setSummary] = useState(props.task.description.substring(0,
-    props.task.description.lastIndexOf('\n')));
+    props.task.description.indexOf('\n')));
 
   const [descrption, setDescription] =
     useState(
@@ -122,7 +122,7 @@ const BasicDetail: React.FC<BasicDetailProp> = (props: any) => {
         setTaskLink(`kubectl apply -f ${item.rawUrl}`);
 
         setSummary(item.description.substring(0,
-          item.description.lastIndexOf('\n')));
+          item.description.indexOf('\n')));
 
         setDescription(
           item.description.substring(item.description.indexOf('\n') + 1).trim(),
@@ -145,7 +145,7 @@ const BasicDetail: React.FC<BasicDetailProp> = (props: any) => {
 
   // ading icon for details page
   let resourceIcon: React.ReactNode;
-  if (props.task.type === 'task') {
+  if (props.task.type.toLowerCase() === 'task') {
     resourceIcon = <BuildIcon
       style={{height: '5em', width: '5em'}} color="#484848" />;
   } else {
@@ -156,19 +156,19 @@ const BasicDetail: React.FC<BasicDetailProp> = (props: any) => {
   // for verification status of resources
   let verifiedStatus: any;
   if (props.task) {
-    if (props.task.catalog.type === 'Official') {
+    if (props.task.catalog.type.toLowerCase() === 'official') {
       verifiedStatus = <div className="vtask" >
         <CatIcon size="md" color='#484848'
           style={{width: '2em', height: '1.7em'}} />
       </div>;
     }
-    if (props.task.catalog.type === 'Verified') {
+    if (props.task.catalog.type.toLowerCase() === 'verified') {
       verifiedStatus = <div className="vtask" >
         <CertificateIcon size="md" color='#484848'
           style={{width: '2em', height: '1.7em'}} />
       </div>;
     }
-    if (props.task.catalog.type === 'Cummunity') {
+    if (props.task.catalog.type.toLowerCase() === 'community') {
       verifiedStatus = <div className="vtask" >
         <UserIcon size="md" color='#484848'
           style={{width: '2em', height: '1.7em'}} />
